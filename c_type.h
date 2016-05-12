@@ -11,6 +11,7 @@ typedef int            int32_t;
 
 #define INT8_T  int8_t
 #define INT16_T int16_t
+#define INT16    int16_t
 #define INT32_T int32_t
 
 
@@ -32,6 +33,7 @@ typedef unsigned short int      uint16_t;
 
 #define UINT8_T                 uint8_t
 #define UINT16_T                uint16_t
+#define UINT16                   uint16_t
 
 #ifndef __uint32_t_defined
 typedef unsigned int            uint32_t;
@@ -41,6 +43,10 @@ typedef unsigned int            uint32_t;
 #if __WORDSIZE == 64
 typedef unsigned long int       uint64_t;
 #define UINT64_T                 uint64_t
+
+typedef unsigned char       BYTE;
+typedef unsigned short      WORD;
+typedef unsigned long       DWORD;
 #else
 __extension__
 typedef unsigned long long int  uint64_t;

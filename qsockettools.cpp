@@ -8,8 +8,6 @@ QSocketTools::QSocketTools(QWidget *parent) :
     ui->setupUi(this);
 
     this->init();
-
-
 }
 
 QSocketTools::~QSocketTools()
@@ -138,6 +136,7 @@ void QSocketTools::on_pb_SendData_clicked()
 
 void QSocketTools::on_cb_isDefaultProtocol_clicked(bool checked)
 {
+    /**/
     if(checked){
        this->isDefauleProtocol = true;
     }else{

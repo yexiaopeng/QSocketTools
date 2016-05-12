@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        qsockettools.cpp
+        qsockettools.cpp \
+    protocol/source/ntprotocol.c
 
-HEADERS  += qsockettools.h
+HEADERS  += qsockettools.h \
+    c_type.h \
+    protocol/include/ntprocol.h
 
 FORMS    += qsockettools.ui
