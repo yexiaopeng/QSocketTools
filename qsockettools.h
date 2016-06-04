@@ -31,6 +31,8 @@ private slots:
 
     void slotDisconnected();
 
+    void on_pb_CleanReceive_clicked();
+
 private:
     bool isConnectFlag;
     bool isDefauleProtocol;

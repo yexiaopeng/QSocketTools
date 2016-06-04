@@ -161,3 +161,8 @@ void QSocketTools::readDataReceiveServer()
 }
 
 
+
+void QSocketTools::on_pb_CleanReceive_clicked()
+{
+    ui->tb_ReceiveData->clear();
+}
