@@ -15,13 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         qsockettools.cpp \
     protocol/source/ntprotocol.cpp \
-    ntmsgdecoder.cpp
+    msgdecoder/ntmsgdecoder.cpp
 
 
 HEADERS  += qsockettools.h \
     c_type.h \
     protocol/include/ntprotocol.h \
      NTMsgDecoder.h \
-    ntmsgdecoder.h
+    msgdecoder/ntmsgdecoder.h
 
 FORMS    += qsockettools.ui
