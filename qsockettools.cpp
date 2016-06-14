@@ -141,7 +141,7 @@ void QSocketTools::on_pb_SendData_clicked()
         //data use protocol process
 
        //
-        BYTE mprotocolType = 11;
+        BYTE mprotocolType = 2;
         NTDeviceMark  *pdeviceID = (NTDeviceMark  *)malloc(sizeof(NTDeviceMark));
         pdeviceID->deviceID = 1234;
         pdeviceID->deviceType = 32;
@@ -155,7 +155,7 @@ void QSocketTools::on_pb_SendData_clicked()
 //                                              WORD mlength,void *pdata, const char*SecurityData
         char  msecur[32] ={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32};
       NTNetProtocolPack * sendData =    NetProtocolPackage(mprotocolType,pdeviceID,mpackID,mprotocolID,mver,mtime,mlength,pstr,msecur);
-        this->tcpSocket->write((const char *)sendData,strlen(pstr));
+        this->tcpSocket->write((const char *)sendData,sizeof(NTNetProtocolPack) - sizeof(WORD) +  mlength);
 //      free(pdeviceID);
 //      free(sendData);
 
