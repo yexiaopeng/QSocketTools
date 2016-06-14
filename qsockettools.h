@@ -5,6 +5,10 @@
 #include<QtNetwork/qtcpsocket.h>
 #include<QtNetwork/QHostInfo>
 #include<QNetworkInterface>
+
+
+#include "protocol/include/ntprotocol.h"
+
 namespace Ui {
 class QSocketTools;
 }
@@ -23,7 +27,7 @@ private slots:
     void on_pb_SendData_clicked();
 
 
-    void on_cb_isDefaultProtocol_clicked(bool checked);
+
 
     void readDataReceiveServer();
 
@@ -33,6 +37,10 @@ private slots:
 
     void on_pb_CleanReceive_clicked();
 
+
+
+    void on_cb_isDefaultProtocol_clicked();
+
 private:
     bool isConnectFlag;
     bool isDefauleProtocol;
@@ -40,6 +48,9 @@ private:
     quint16 blockSize;
     long int receiveNum;
     QString ipAddress;
+    char SecurityData[32];
+
+
 
     QList<QHostAddress> address;
 

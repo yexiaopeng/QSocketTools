@@ -3,8 +3,11 @@
 
 #include <netinet/in.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <string.h>
 
-#include "c_type.h"
+#include "../../c_type.h"
 
 #pragma pack(push)
 #pragma pack(1)
@@ -47,14 +50,7 @@ typedef struct _IPPORTADDRESS {
 #pragma pack(pop)
 
 
-enum NTCheckReturnType {
-    //check error
-    NT_CHECK_RETURN_ERROR,
-    //data size is not enough
-    NT_CHECK_RETURN_MORE_DATA,
-    //check success
-    NT_CHECK_RETURN_SUCCESS
-};
+
 
 
 /****************************************
@@ -124,7 +120,7 @@ UINT16 NetCountCRC_16(char *pdata, int size);
   @Ver:
   @Other:
 ****************************************/
-NTNetProtocolPack* NetProtocolPackage(BYTE mprotocolType, const NTDeviceMark* pdeviceID, INT16 mpackID, BYTE mprotocolID, BYTE mver, DWORD mtime, WORD mlength,
+extern NTNetProtocolPack* NetProtocolPackage(BYTE mprotocolType,   NTDeviceMark* pdeviceID, INT16 mpackID, BYTE mprotocolID, BYTE mver, DWORD mtime, WORD mlength,
         void *pdata, const char*SecurityData);
 
 /****************************************

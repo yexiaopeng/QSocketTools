@@ -1,6 +1,10 @@
 #include "qsockettools.h"
 #include "ui_qsockettools.h"
 #include <QTime>
+
+
+
+
 QSocketTools::QSocketTools(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::QSocketTools)
@@ -54,6 +58,13 @@ void QSocketTools::init()
 
     /* receive number */
     this->receiveNum = 0;
+
+    /*defaule not use user-defined's  protocol */
+    this->isDefauleProtocol = false;
+
+    char  msecur[32] ={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32};
+    memcpy(this->SecurityData,msecur,sizeof(char)*32);
+
 }
 
 
@@ -121,8 +132,35 @@ void QSocketTools::on_pb_SendData_clicked()
     }
 
     if(this->isDefauleProtocol){
+        //use-protocol
+        QString  message;
+        message = ui->le_SendData->text();
+        QByteArray bytearray= message.toLocal8Bit();
+        char* pstr = (char*)bytearray.data();
+
+        //data use protocol process
+
+       //
+        BYTE mprotocolType = 11;
+        NTDeviceMark  *pdeviceID = (NTDeviceMark  *)malloc(sizeof(NTDeviceMark));
+        pdeviceID->deviceID = 1234;
+        pdeviceID->deviceType = 32;
+        INT16 mpackID = 45;
+        BYTE mprotocolID = 7;
+        BYTE mver = 1;
+        DWORD mtime = 145567;
+        WORD mlength = bytearray.length();
+ //         const NTDeviceMark* pdeviceID,
+//                                              INT16 mpackID, BYTE mprotocolID, BYTE mver, DWORD mtime,
+//                                              WORD mlength,void *pdata, const char*SecurityData
+        char  msecur[32] ={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32};
+      NTNetProtocolPack * sendData =    NetProtocolPackage(mprotocolType,pdeviceID,mpackID,mprotocolID,mver,mtime,mlength,pstr,msecur);
+        this->tcpSocket->write((const char *)sendData,strlen(pstr));
+//      free(pdeviceID);
+//      free(sendData);
 
     }else{
+        //not use protocol
         QString  message;
         message = ui->le_SendData->text();
         QByteArray bytearray= message.toLocal8Bit();
@@ -134,15 +172,6 @@ void QSocketTools::on_pb_SendData_clicked()
 
 
 
-void QSocketTools::on_cb_isDefaultProtocol_clicked(bool checked)
-{
-    /**/
-    if(checked){
-       this->isDefauleProtocol = true;
-    }else{
-        this->isDefauleProtocol = false;
-    }
-}
 
 void QSocketTools::readDataReceiveServer()
 {
@@ -165,4 +194,14 @@ void QSocketTools::readDataReceiveServer()
 void QSocketTools::on_pb_CleanReceive_clicked()
 {
     ui->tb_ReceiveData->clear();
+}
+
+
+
+void QSocketTools::on_cb_isDefaultProtocol_clicked()
+{
+    if(ui->cb_isDefaultProtocol->isChecked())
+        this->isDefauleProtocol = true;
+    else
+        this->isDefauleProtocol = false;
 }
