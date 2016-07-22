@@ -16,14 +16,14 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>18</x>
-     <y>28</y>
+     <x>4</x>
+     <y>12</y>
      <width>685</width>
      <height>463</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="TCP_Client">
     <attribute name="title">
@@ -218,22 +218,6 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;接收：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <zorder>label_2</zorder>
-    <zorder>le_localPort</zorder>
-    <zorder>le_localAddr</zorder>
-    <zorder>label_8</zorder>
-    <zorder>layoutWidget</zorder>
-    <zorder>label_7</zorder>
-    <zorder>le_localPort</zorder>
-    <zorder>pb_CleanReceive</zorder>
-    <zorder>le_localAddr</zorder>
-    <zorder>layoutWidget</zorder>
-    <zorder>label_8</zorder>
-    <zorder>tb_ReceiveData</zorder>
-    <zorder>cb_isDefaultProtocol</zorder>
-    <zorder>layoutWidget</zorder>
-    <zorder>label_7</zorder>
-    <zorder>label_6</zorder>
     <zorder>le_localPort</zorder>
     <zorder>pb_CleanReceive</zorder>
     <zorder>label_2</zorder>
@@ -248,8 +232,109 @@
    </widget>
    <widget class="QWidget" name="UDP">
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>UDP</string>
     </attribute>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>10</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>网络设置</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>86</y>
+       <width>48</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;数据：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_SendData_udp">
+     <property name="geometry">
+      <rect>
+       <x>72</x>
+       <y>86</y>
+       <width>394</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_SendData_udp">
+     <property name="geometry">
+      <rect>
+       <x>478</x>
+       <y>82</y>
+       <width>85</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>发送</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>19</x>
+       <y>40</y>
+       <width>587</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;目标地址：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_ServerAddr_udp">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;端口：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_ServerPort_udp">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pb_UdpConnect">
+        <property name="text">
+         <string>UDP连接</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
  </widget>

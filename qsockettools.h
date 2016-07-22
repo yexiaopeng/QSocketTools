@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include<QtNetwork/qtcpsocket.h>
+#include <QtNetwork/qudpsocket.h>
 #include<QtNetwork/QHostInfo>
 #include<QNetworkInterface>
 
@@ -26,9 +27,6 @@ private slots:
 
     void on_pb_SendData_clicked();
 
-
-
-
     void readDataReceiveServer();
 
     void slotConnected();
@@ -37,15 +35,21 @@ private slots:
 
     void on_pb_CleanReceive_clicked();
 
-
-
     void on_cb_isDefaultProtocol_clicked();
 
-    void on_pushButton_3_clicked();
 
-    void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
+
+    void on_pb_UdpConnect_clicked();
+
+    void readDataReceiveUdp();
+
+    void slotUdpConnected();
+
+    void slotUdpDisconnected();
+
+
+    void on_pb_SendData_udp_clicked();
 
 private:
     bool isConnectFlag;
@@ -57,6 +61,10 @@ private:
     char SecurityData[32];
 
 
+    QUdpSocket * udpSocket;
+    bool isUdpConnectFlag;
+
+
 
     QList<QHostAddress> address;
 
@@ -65,6 +73,13 @@ private:
     void connectToServer();
 
     void disConnectToServer();
+
+    void connectToUdp();
+
+    void disConnectToUdp();
+
+
+
 
 
 

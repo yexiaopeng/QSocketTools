@@ -1,5 +1,6 @@
 #include "qsockettools.h"
 #include "ui_qsockettools.h"
+#include <qdebug.h>
 #include <QTime>
 
 
@@ -65,13 +66,29 @@ void QSocketTools::init()
     char  msecur[32] ={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32};
     memcpy(this->SecurityData,msecur,sizeof(char)*32);
 
+
+
+
+    /* udp config */
+    this->isUdpConnectFlag = false;
+    QPalette pal_2 = ui->pb_UdpConnect->palette();
+    pal_2.setColor(QPalette::Button,Qt::red);
+    ui->pb_UdpConnect->setPalette(pal_2);
+
+    /* new a tcp socket */
+    this->udpSocket = new QUdpSocket(this);
+    ui->le_ServerAddr_udp->setText("127.0.0.1");
+    ui->le_ServerPort_udp->setText("31688");
+
+    /* signal cb*/
+     connect(udpSocket,SIGNAL(readyRead()),this,SLOT(readDataReceiveUdp()));
+     connect(udpSocket,SIGNAL(connected()),this,SLOT(slotUdpConnected()));
+     connect(udpSocket,SIGNAL(disconnected()),this,SLOT(slotUdpDisconnected()));
 }
 
 
 void QSocketTools::on_pb_TcpConnect_clicked()
 {
-
-
     if(this->isConnectFlag){
         this->disConnectToServer();
     }else{
@@ -122,6 +139,8 @@ void QSocketTools::disConnectToServer()
 
     this->tcpSocket->abort();
 }
+
+
 
 
 
@@ -206,17 +225,74 @@ void QSocketTools::on_cb_isDefaultProtocol_clicked()
         this->isDefauleProtocol = false;
 }
 
-void QSocketTools::on_pushButton_3_clicked()
+
+
+void QSocketTools::on_pb_UdpConnect_clicked()
 {
+    qDebug() << "on_pb_UdpConnect_clicked" ;
+
+    if(this->isUdpConnectFlag){
+        this->disConnectToUdp();
+    }else{
+
+        this->connectToUdp();
+    }
+}
+
+void QSocketTools::readDataReceiveUdp()
+{
+    qDebug() << "readDataReceiveUdp";
+}
+
+void QSocketTools::slotUdpConnected()
+{
+    qDebug() << "slotUdpConnected";
+
+    QPalette pal = ui->pb_UdpConnect->palette();
+    this->isUdpConnectFlag = true;
+    pal.setColor(QPalette::Button,Qt::green);
+    ui->pb_UdpConnect->setPalette(pal);
+}
+
+void QSocketTools::slotUdpDisconnected()
+{
+    qDebug() << "slotUdpDisconnected";
+    QPalette pal = ui->pb_UdpConnect->palette();
+    this->isUdpConnectFlag = false;
+    pal.setColor(QPalette::Button,Qt::red);
+    ui->pb_UdpConnect->setPalette(pal);
 
 }
 
-void QSocketTools::on_pushButton_clicked()
+void QSocketTools::connectToUdp()
 {
+    //取消已有的连接
+    udpSocket->abort();
+    //连接到主机
+    udpSocket->connectToHost(ui->le_ServerAddr_udp->text(),
+                             ui->le_ServerPort_udp->text().toInt());
 
 }
 
-void QSocketTools::on_pushButton_2_clicked()
+void QSocketTools::disConnectToUdp()
 {
+    if(this->isUdpConnectFlag == false){
+        return ;
+    }
 
+    this->udpSocket->abort();
+}
+
+void QSocketTools::on_pb_SendData_udp_clicked()
+{
+    if(this->isUdpConnectFlag == false){
+        return ;
+    }
+
+    QString  message;
+    message = ui->le_SendData_udp->text();
+    QByteArray bytearray= message.toLocal8Bit();
+    char* pstr = (char*)bytearray.data();
+
+    this->udpSocket->write((const char *)pstr,strlen(pstr));
 }
