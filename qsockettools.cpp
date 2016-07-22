@@ -205,3 +205,18 @@ void QSocketTools::on_cb_isDefaultProtocol_clicked()
     else
         this->isDefauleProtocol = false;
 }
+
+void QSocketTools::on_pushButton_3_clicked()
+{
+
+}
+
+void QSocketTools::on_pushButton_clicked()
+{
+
+}
+
+void QSocketTools::on_pushButton_2_clicked()
+{
+
+}

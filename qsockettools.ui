@@ -6,214 +6,251 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>665</width>
-    <height>468</height>
+    <width>726</width>
+    <height>532</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>QSocketTools</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>20</y>
-     <width>51</width>
-     <height>17</height>
+     <x>18</x>
+     <y>28</y>
+     <width>685</width>
+     <height>463</height>
     </rect>
    </property>
-   <property name="text">
-    <string>客户端</string>
+   <property name="currentIndex">
+    <number>0</number>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>81</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>网络设置</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>190</y>
-     <width>48</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;接收：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QTextBrowser" name="tb_ReceiveData">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>220</y>
-     <width>541</width>
-     <height>192</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pb_CleanReceive">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>190</y>
-     <width>85</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>清空</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="cb_isDefaultProtocol">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>188</y>
-     <width>101</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>自定义协议</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>31</x>
-     <y>150</y>
-     <width>541</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;数据：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="le_SendData"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pb_SendData">
-      <property name="text">
-       <string>发送</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>32</x>
-     <y>80</y>
-     <width>541</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;服务器地址：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="le_ServerAddr">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>端口：</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="le_ServerPort">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pb_TcpConnect">
-      <property name="text">
-       <string>TCP连接</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>41</x>
-     <y>117</y>
-     <width>80</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;本地地址：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="le_localAddr">
-   <property name="geometry">
-    <rect>
-     <x>127</x>
-     <y>117</y>
-     <width>129</width>
-     <height>27</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>262</x>
-     <y>117</y>
-     <width>80</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;本地端口：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="le_localPort">
-   <property name="geometry">
-    <rect>
-     <x>348</x>
-     <y>117</y>
-     <width>130</width>
-     <height>27</height>
-    </rect>
-   </property>
+   <widget class="QWidget" name="TCP_Client">
+    <attribute name="title">
+     <string>TCP客户端</string>
+    </attribute>
+    <widget class="QLineEdit" name="le_localPort">
+     <property name="geometry">
+      <rect>
+       <x>346</x>
+       <y>74</y>
+       <width>130</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_CleanReceive">
+     <property name="geometry">
+      <rect>
+       <x>78</x>
+       <y>147</y>
+       <width>85</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>清空</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>7</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>网络设置</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_localAddr">
+     <property name="geometry">
+      <rect>
+       <x>125</x>
+       <y>74</y>
+       <width>129</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>107</y>
+       <width>541</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;数据：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_SendData"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pb_SendData">
+        <property name="text">
+         <string>发送</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>74</y>
+       <width>80</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;本地端口：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="tb_ReceiveData">
+     <property name="geometry">
+      <rect>
+       <x>28</x>
+       <y>177</y>
+       <width>635</width>
+       <height>241</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="cb_isDefaultProtocol">
+     <property name="geometry">
+      <rect>
+       <x>468</x>
+       <y>145</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>自定义协议</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>37</y>
+       <width>541</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;服务器地址：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_ServerAddr">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>端口：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="le_ServerPort">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pb_TcpConnect">
+        <property name="text">
+         <string>TCP连接</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>39</x>
+       <y>74</y>
+       <width>80</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;本地地址：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>28</x>
+       <y>147</y>
+       <width>48</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;接收：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <zorder>label_2</zorder>
+    <zorder>le_localPort</zorder>
+    <zorder>le_localAddr</zorder>
+    <zorder>label_8</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>label_7</zorder>
+    <zorder>le_localPort</zorder>
+    <zorder>pb_CleanReceive</zorder>
+    <zorder>le_localAddr</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>label_8</zorder>
+    <zorder>tb_ReceiveData</zorder>
+    <zorder>cb_isDefaultProtocol</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>label_7</zorder>
+    <zorder>label_6</zorder>
+    <zorder>le_localPort</zorder>
+    <zorder>pb_CleanReceive</zorder>
+    <zorder>label_2</zorder>
+    <zorder>le_localAddr</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>label_8</zorder>
+    <zorder>tb_ReceiveData</zorder>
+    <zorder>cb_isDefaultProtocol</zorder>
+    <zorder>layoutWidget</zorder>
+    <zorder>label_7</zorder>
+    <zorder>label_6</zorder>
+   </widget>
+   <widget class="QWidget" name="UDP">
+    <attribute name="title">
+     <string>Tab 2</string>
+    </attribute>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
